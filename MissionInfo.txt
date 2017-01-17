@@ -1,0 +1,5 @@
+﻿Mission accepted:
+Faction: 
+CdE Corporation
+ Mission_Smuggle_Anarchy
+System: Robigo

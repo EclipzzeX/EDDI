@@ -1,0 +1,10 @@
+﻿  *****Station info*****
+Station:Robigo Mines 
+Model:Outpost 
+Economy:Extraction
+Faction:CdE Corporation
+FactionState:Expansion
+Government :Anarchy
+System:Robigo
+
+

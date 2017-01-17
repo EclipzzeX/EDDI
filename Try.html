@@ -1,0 +1,53 @@
+<html>
+	<head>
+    <meta http-equiv="refresh" content="10">
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/dataTables.bootstrap.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div class="container-fluid">
+
+      <div id='table-container'></div>
+
+    </div><!-- /.container -->
+
+	<footer class='footer'>
+		<div class='container-fluid'>
+			<hr />
+			<!-- <p class='pull-right'><a href='http://172.16.90.100/eddi/try.html'>CSV to HTML Table</a> by <a href='http://172.16.90.100/eddi/try.html'>Me</a></p> -->
+		</div>
+	</footer>
+
+	<!-- <script src="js_OLD/jquery-3.1.1.min.js"></script>
+	  Bootstrap core JavaScript
+	================================================== -->
+	<script src="js/jquery.min.js"></script> -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.csv.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.js"></script>
+	<script src='js/csv_to_html_table.js'></script>
+
+	<script>
+	  function format_link(link){
+	    if (link)
+	      return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+	    else
+	      return "";
+	  }
+
+	  CsvToHtmlTable.init({
+	    csv_path: 'data/data1.csv',
+	    element: 'table-container',
+	    allow_download: false,
+	    csv_options: {separator: ',', delimiter: ' '},
+	    datatables_options: {"paging": false},
+	    custom_formatting: [[4, format_link]]
+	  });
+	</script>
+</body>
+<html>

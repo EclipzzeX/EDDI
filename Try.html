@@ -25,7 +25,7 @@
 	<!-- ==================================================
   Bootstrap core JavaScript
 	================================================== -->
-	<script src="js/jquery.min.js"></script> -->
+	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.csv.min.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
@@ -33,21 +33,20 @@
 	<script src='js/csv_to_html_table.js'></script>
 
 	<script>
-	  function format_link(link){
-	    if (link)
-	      return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-	    else
-	      return "";
-	  }
+		var data_id, dat = ["data/bounty.csv","data/conflictzone.csv","data/dockinfo.csv"];
 
-	  CsvToHtmlTable.init({
-	    csv_path: 'data/data1.csv',
-	    element: 'table-container',
-	    allow_download: false,
-	    csv_options: {separator: ',', delimiter: ' '},
-	    datatables_options: {"paging": false},
-	    custom_formatting: [[4, format_link]]
-	  });
+		for (var data_id = 0; data_id < dat.length; data_id++) {
+			CsvToHtmlTable.init(
+				{
+						csv_path: dat[data_id],
+						element: 'table-container',
+						csv_options: {separator: ',', delimiter: '""'}
+				}
+			);
+		};
+
 	</script>
+
+
 </body>
 <html>

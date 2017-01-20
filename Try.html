@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,22 +15,30 @@
 		<div class="container-fluid">
 		<div id='table-container'></div>
 
-			<h2>Bounty</h2>
+			<b>Bounty</b>
 			<div id='table-container0'></div>
-
-			<h2>Conflict</h2>
+			<b>Bounty Incurred</b>
 			<div id='table-container1'></div>
-
-			<h2>Dock</h2>
+			<b>Docking Info</b>
 			<div id='table-container2'></div>
-			<h2>Mision Accepted</h2>
+			<b>Docking Request Status</b>
 			<div id='table-container3'></div>
-			<h2>Mission Completed</h2>
+			<b>Mision Accepted</b>
 			<div id='table-container4'></div>
-			<h2>Mision Aborted</h2>
+			<b>Mission Completed</b>
 			<div id='table-container5'></div>
-			<h2>Bodyscan</h2>
+			<b>Mision Aborted</b>
 			<div id='table-container6'></div>
+			<b>Bodyscan</b>
+			<div id='table-container7'></div>
+			<b>Jump Info</b>
+			<div id='table-container7'></div>
+			<b>Supercruise</b>
+			<div id='table-container7'></div>
+			<b>Normal Space</b>
+			<div id='table-container7'></div>
+			<b>Conflict Zones</b>
+			<div id='table-container8'></div>
     </div><!-- /.container -->
 
 	<footer class='footer'>
@@ -51,7 +59,21 @@
 	<script src='js/csv_to_html_table.js'></script>
 
 	<script>
-		var data_id, dat = ["data/bounty.csv","data/conflictzone.csv","data/dockinfo.csv","data/msnaccept.csv","data/msncomplete.csv","data/msnabort.csv","data/bodyscan.csv"];
+		var data_id, dat = [
+			"data/bounty.csv",
+			"data/ibounty.csv",
+			"data/dockinfo.csv",
+			"data/dockingreq.csv",
+			"data/msnaccept.csv",
+			"data/msncomplete.csv",
+			"data/msnabort.csv",
+			"data/bodyscan.csv",
+			"data/jumpinfo.csv",
+			"data/supercruise.csv",
+			"data/normalspace.csv",
+			"data/conflictzone.csv",
+
+		];
 
 		for (var data_id = 0; data_id < dat.length; data_id++) {
 			CsvToHtmlTable.init(

@@ -1,0 +1,10 @@
+﻿  *****Station info*****
+Station:Barjavel Station 
+Model:Coriolis 
+Economy:Industrial
+Faction:Privateer's Alliance
+FactionState:Boom
+Government :Confederacy
+System:HIP 33368
+
+

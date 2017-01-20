@@ -1,3 +1,0 @@
-﻿ Robigo
-jumps done so far: 43
-Distance traveled: 1215.521 Ly

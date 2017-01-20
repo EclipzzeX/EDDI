@@ -1,2 +1,0 @@
-Mission accepted,Faction,System
-Mission_Smuggle_Anarchy,CdE Corporation,Robigo

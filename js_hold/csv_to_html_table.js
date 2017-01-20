@@ -4,6 +4,7 @@ CsvToHtmlTable = {
     init: function (options) {
 
       options = options || {};
+
       var csv_path = options.csv_path || "";
       var el = options.element || "table-container";
       var allow_download = options.allow_download || false;
@@ -47,7 +48,7 @@ CsvToHtmlTable = {
             $('#' + el + '-table tbody').append(row_html);
           }
 
-          // $('#' + el + '-table').DataTable(datatables_options);
+          $('#' + el + '-table').DataTable(datatables_options);
 
           if (allow_download)
             $("#" + el).append("<p><a class='btn btn-info' href='" + csv_path + "'><i class='glyphicon glyphicon-download'></i> Download as CSV</a></p>");

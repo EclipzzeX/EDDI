@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="refresh" content="10">
 
 		<!-- Bootstrap core CSS -->
@@ -10,9 +13,24 @@
 
 	<body>
 		<div class="container-fluid">
+		<div id='table-container'></div>
 
-      <div id='table-container'></div>
+			<h2>Bounty</h2>
+			<div id='table-container0'></div>
 
+			<h2>Conflict</h2>
+			<div id='table-container1'></div>
+
+			<h2>Dock</h2>
+			<div id='table-container2'></div>
+			<h2>Mision Accepted</h2>
+			<div id='table-container3'></div>
+			<h2>Mission Completed</h2>
+			<div id='table-container4'></div>
+			<h2>Mision Aborted</h2>
+			<div id='table-container5'></div>
+			<h2>Bodyscan</h2>
+			<div id='table-container6'></div>
     </div><!-- /.container -->
 
 	<footer class='footer'>
@@ -33,13 +51,13 @@
 	<script src='js/csv_to_html_table.js'></script>
 
 	<script>
-		var data_id, dat = ["data/bounty.csv","data/conflictzone.csv","data/dockinfo.csv"];
+		var data_id, dat = ["data/bounty.csv","data/conflictzone.csv","data/dockinfo.csv","data/msnaccept.csv","data/msncomplete.csv","data/msnabort.csv","data/bodyscan.csv"];
 
 		for (var data_id = 0; data_id < dat.length; data_id++) {
 			CsvToHtmlTable.init(
 				{
 						csv_path: dat[data_id],
-						element: 'table-container',
+						element: 'table-container'+data_id,
 						csv_options: {separator: ',', delimiter: '""'}
 				}
 			);

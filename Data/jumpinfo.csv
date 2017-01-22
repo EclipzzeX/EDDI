@@ -1,4 +1,3 @@
-﻿System,Jumps Completed,Distance
-"Khun"
-,"82"
-,"2338.641 Ly"
+Jumps Completed,Distance
+{INT:jumpsdone},{DEC:jumpdistance}
+82,Not set83,8.854

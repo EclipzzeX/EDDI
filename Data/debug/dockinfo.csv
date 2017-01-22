@@ -1,5 +1,5 @@
 "Station","Model","System","Economy","Faction","FactionState","Government"
-Barjavel Station,Coriolis,HIP 33368,Industrial,Privateer's Alliance,Boom,Confederacy
+{TXT:EDDI docked station},{TXT:EDDI docked model},{TXT:EDDI docked system},{TXT:EDDI docked economy},{TXT:EDDI docked faction},{TXT:EDDI docked factionstate},{TXT:EDDI docked government}
 Barjavel Station,Coriolis,HIP 33368,Industrial,Privateer's Alliance,Boom,Confederacy
 Barjavel Station,Coriolis,HIP 33368,Industrial,Privateer's Alliance,Boom,Confederacy
 Barjavel Station,Coriolis,HIP 33368,Industrial,Privateer's Alliance,Boom,Confederacy

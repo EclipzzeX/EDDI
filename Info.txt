@@ -22,3 +22,5 @@ Set int [jumpsdone] value to [savedvalue]
 set int [jumpsdone] to [jumpsdone] + 1 [save value to profile]
 set dec [afstand] to [afstand]  + [{DEC:EDDI jumped distance}] (save value to profile)
 write to file
+
+{TXT:EDDI docked station},{TXT:EDDI docked model},{TXT:EDDI docked system},{TXT:EDDI docked economy},{TXT:EDDI docked faction},{TXT:EDDI docked factionstate},{TXT:EDDI docked government}

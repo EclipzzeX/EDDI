@@ -14,3 +14,11 @@ D:\xampp\htdocs\eddi\bounty.html
 
 Kills,Reward,Total,Wing
 {DEC:eclipsex total bounty kills},{DEC:eclipsex total awarded reward},{DEC:endresult},{BOOL:EDDI bounty awarded shared}
+
+
+
+Set Dec [afstand] to [Saved Value]
+Set int [jumpsdone] value to [savedvalue]
+set int [jumpsdone] to [jumpsdone] + 1 [save value to profile]
+set dec [afstand] to [afstand]  + [{DEC:EDDI jumped distance}] (save value to profile)
+write to file

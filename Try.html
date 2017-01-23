@@ -10,40 +10,40 @@
 		<link href="css/dataTables.bootstrap.css" rel="stylesheet">
 		<link href="css/mine.css" rel="stylesheet">
 
+		<style>
+	    /* Example Styles for Demo */
+	    .etabs { margin: 0; padding: 0; }
+	    .tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
+	    .tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
+	    .tab a:hover { text-decoration: underline; }
+	    .tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+	    .tab a.active { font-weight: bold; }
+	    .tab-container .panel-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+	    .panel-container { margin-bottom: 10px; }
+	  </style>
+
+		<script type="text/javascript">
+	    $(document).ready( function() {
+	      $('#tab-container').easytabs();
+	    });
+	  </script>
+
 	</head>
 
 	<body>
- <div class="container-fluid">
+
+		<h3>Bounty Information</h3>
+
+
+ 		<div class="container-fluid">
 		<div id='table-container'></div>
 
 			<b>Bounty v2</b>
-			<div id='table-container0'></div>
+				<div id='table-container0'></div>
 			<b>Bounty Incurred v2</b>
-			<div id='table-container1'></div>
-			<b>Docking Info v2</b>
-			<div id='table-container2'></div>
-			<b>Docking Request Status v2</b>
-			<div id='table-container3'></div>
-			<b>Mision Accepted v2</b>
-			<div id='table-container4'></div>
-			<b>Mission Completed v2</b>
-			<div id='table-container5'></div>
-			<b>Mision Aborted v2</b>
-			<div id='table-container6'></div>
-			<b>Bodyscan v2</b>
-			<div id='table-container7'></div>
-			<b>Jump Info</b>
-			<div id='table-container8'></div>
-			<b>Current Jump v2</b>
-			<div id='table-container9'></div>
-			<b>Supercruise</b>
-			<div id='table-container10'></div>
-			<b>Normal Space</b>
-			<div id='table-container11'></div>
+				<div id='table-container1'></div>
 			<b>Conflict Zones</b>
-			<div id='table-container12'></div>
-			<b>Docking History</b>
-			<div id='table-container13'></div>
+				<div id='table-container2'></div>
 
   </div>
 
@@ -58,28 +58,22 @@
   Bootstrap core JavaScript
 	================================================== -->
 	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easytabs.js"</script>
+	<script src="js/jquery.hashchange.js"</script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.csv.min.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
 	<script src="js/dataTables.bootstrap.js"></script>
 	<script src='js/csv_to_html_table.js'></script>
 
+
 	<script>
 		var data_id, dat = [
 			"data/bounty.csv",
 			"data/ibounty.csv",
-			"data/dockinfo.csv",
-			"data/dockingreq.csv",
-			"data/msnaccept.csv",
-			"data/msncomplete.csv",
-			"data/msnabort.csv",
-			"data/bodyscan.csv",
-			"data/jumpinfo.csv",
-			"data/currentjump.csv",
-			"data/supercruise.csv",
-			"data/normalspace.csv",
+
+			// TODO: Add the following to Version two status
 			"data/conflictzone.csv",
-			"data/dockinghistory.csv"
 		];
 
 		for (var data_id = 0; data_id < dat.length; data_id++) {

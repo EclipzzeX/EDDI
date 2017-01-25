@@ -36,3 +36,18 @@ write to file
 DROPPED TO NORMAL SPACE:
 You have returned to normal space near {TXT:EDDI entered normal space bodytype} {TXT:EDDI entered normal space body} in the {TXT:EDDI entered normal space system} system.
 --------
+
+
+  <div id="travel-html">
+    <meta http-equiv="refresh" content="10">
+    <h3>Travel Information</h3>
+
+  </div>
+
+
+
+  <div id="systems-html">
+    <meta http-equiv="refresh" content="10">
+    <h3>Systems Information</h3>
+
+  </div>

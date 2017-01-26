@@ -1,12 +1,12 @@
 <html>
 <head>
-  <title>Elite:Dangerous Info</title>
+  <title>Elite:Dangerous Experimental</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <script src="js//jquery.min.js" type="text/javascript"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/jquery.hashchange.js" type="text/javascript"></script>
   <script src="js/jquery.easytabs.js" type="text/javascript"></script>
 
@@ -63,231 +63,270 @@
    <li class='tab'><a href="#commodities-html">Commodities</a></li>
  </ul>
 
+ <script>
+
+ var datTables=[
+       {"flag": "gi","file": "data/GameInfo.csv"},
+       {"flag": "gi","file": "data/progress.csv"},
+       {"flag": "gi","file": "data/LoginHistory.csv"},
+       {"flag": "bo","file": "data/bountyhistory.csv"},
+       {"flag": "bo","file": "data/bounty.csv"},
+       {"flag": "bo","file": "data/ibounty.csv"},
+       {"flag": "bo","file": "data/conflictzone.csv"},
+       {"flag": "do","file": "data/dockinfo.csv"},
+       {"flag": "do","file": "data/dockingreq.csv"},
+       {"flag": "do","file": "data/dockinghistory.csv"},
+       {"flag": "mi","file": "data/msnaccept.csv"},
+       {"flag": "mi","file": "data/msncomplete.csv"},
+       {"flag": "mi","file": "data/msnabort.csv"},
+       {"flag": "tr","file": "data/jumpinfo.csv"},
+       {"flag": "tr","file": "data/currentjump.csv"},
+       {"flag": "tr","file": "data/supercruise.csv"},
+       {"flag": "sy","file": "data/bodyscan.csv"},
+       {"flag": "co","file": "data/BuyCommodity.csv"},
+       {"flag": "co","file": "data/SellCommodity.csv"},
+       {"flag": "co","file": "data/CargoEjected.csv"}
+     ];
+</script>
+
+<script>
+
+
+     function myFunction(iFlag) {
+
+        for (var data_id = 0; data_id < datTables.length; data_id++) {
+          if (datTables[data_id].flag == iFlag)
+            {
+              Stuff.push ([datTables[data_id].file]);
+            }
+       }
+     }
+
+ </script>
+
+
  <div class='panel-container'>
 
    <div id="gameinfo-html">
      <h3>Game Information</h3>
-     <div class="container-fluid">
-     <div id='gtable-container'></div>
+     <div id='1table-container'></div>
+
        <b>Current Login Information</b>
-         <div id='gtable-container0'></div>
+         <div id='1table-container0'></div>
        <b>Progress</b>
-         <div id='gtable-container1'></div>
+         <div id='1table-container1'></div>
        <b>Login History</b>
-         <div id='gtable-container2'></div>
+         <div id='1table-container2'></div>
+
+     </div>
+
+  <script>
+    var Stuff = [];
+     myFunction("gi");
+     // document.getElementById("demo").innerHTML = Stuff;
+
+        for (var data_id = 0; data_id < Stuff.length; data_id++) {
+
+          CsvToHtmlTable.init(
+            {
+              csv_path: Stuff[data_id],
+              element: '1table-container'+data_id,
+              csv_options: {separator: ',', delimiter: '""'}
+
+            }
+          );
+        };
+  </script>
+   </div>
+
+   <div id="bounty-html">
+     <h3>Bounty Information</h3>
+     <div class="container-fluid">
+       <div id='2table-container'></div>
+         <b>Bounty History</b>
+           <div id='2table-container0'></div>
+         <b>Bounty Info</b>
+           <div id='2table-container1'></div>
+         <b>Bounty Incurred</b>
+           <div id='2table-container2'></div>
+         <b>Conflict Zones (WIP)</b>
+           <div id='2table-container3'></div>
      </div>
 
      <script>
-      var tCount = "g", gdata_id, datGameInfo = [
-        "data/GameInfo.csv",
-        "data/progress.csv",
-        "data/LoginHistory.csv"
-      ];
+        var Stuff = [];
+        myFunction("bo");
+        // document.getElementById("demo").innerHTML = Stuff;
 
-     for (var gdata_id = 0; gdata_id < datGameInfo.length; gdata_id++) {
-       CsvToHtmlTable.init(
-         {
-             csv_path: datGameInfo[gdata_id],
-             element: tCount+'table-container'+gdata_id,
-             csv_options: {separator: ',', delimiter: '""'}
-         }
-       );
-     };
+        for (var data_id = 0; data_id < Stuff.length; data_id++) {
 
-     </script>
-  </div id>
+          CsvToHtmlTable.init(
+            {
+              csv_path: Stuff[data_id],
+              element: '2table-container'+data_id,
+              csv_options: {separator: ',', delimiter: '""'}
 
-  <div id="bounty-html">
-    <h3>Bounty Information</h3>
-    <div class="container-fluid">
-      <div id='btable-container'></div>
-        <b>Bounty History</b>
-          <div id='btable-container0'></div>
-        <b>Bounty Info</b>
-          <div id='btable-container1'></div>
-        <b>Bounty Incurred</b>
-          <div id='btable-container2'></div>
-        <b>Conflict Zones (WIP)</b>
-          <div id='btable-container3'></div>
-    </div>
+            }
+          );
+        };
+    </script>
 
-    <script>
-      var tCount = "b", bdata_id, datBounty = [
-        "data/bountyhistory.csv",
-        "data/bounty.csv",
-        "data/ibounty.csv",
-        // TODO: Add the following to Version two status
-        "data/conflictzone.csv",
+ </div id>
 
-      ];
+ <div id="docking-html">
+   <h3>Docking Information</h3>
+   <div class="container-fluid">
+     <div id='3table-container'></div>
+        <b>Docking Info v2</b>
+     <div id='3table-container0'></div>
+        <b>Docking Request Status v2</b>
+     <div id='3table-container1'></div>
+   </div>
 
-      for (var bdata_id = 0; bdata_id < datBounty.length; bdata_id++) {
+   <script>
+      var Stuff = [];
+      myFunction("do");
+      // document.getElementById("demo").innerHTML = Stuff;
+
+      for (var data_id = 0; data_id < Stuff.length; data_id++) {
+
         CsvToHtmlTable.init(
           {
-              csv_path: datBounty[bdata_id],
-              element: tCount+'table-container'+bdata_id,
-              csv_options: {separator: ',', delimiter: '""'}
+            csv_path: Stuff[data_id],
+            element: '3table-container'+data_id,
+            csv_options: {separator: ',', delimiter: '""'}
+
           }
         );
       };
+   </script>
+
+</div id>
+
+<div id="missions-html">
+  <h3>Mission Information</h3>
+  <div class="container-fluid">
+  <div id='4table-container'></div>
+
+    <b>Mission Accepted v2</b>
+      <div id='4table-container0'></div>
+    <b>Missions Completed v2</b>
+      <div id='4table-container1'></div>
+    <b>Mission Aborted</b>
+      <div id='4table-container2'></div>
+  </div>
+
+  <script>
+      var Stuff = [];
+      myFunction("mi");
+      // document.getElementById("demo").innerHTML = Stuff;
+
+     for (var data_id = 0; data_id < Stuff.length; data_id++) {
+
+       CsvToHtmlTable.init(
+         {
+           csv_path: Stuff[data_id],
+           element: '4table-container'+data_id,
+           csv_options: {separator: ',', delimiter: '""'}
+
+         }
+       );
+     };
   </script>
 
 </div id>
 
-   <div id="docking-html">
+<div id="travel-html">
+  <h3>Travel Information</h3>
+  <div class="container-fluid">
+  <div id='5table-container'></div>
+    <b>Jump History v2</b>
+      <div id='5table-container0'></div>
+    <b>Current Jump v2</b>
+      <div id='5table-container1'></div>
+    <b>SuperCruise v2</b>
+      <div id='5table-container2'></div>
+  </div>
 
-     <h3> Docking Information </h3>
-     <div class="container-fluid">
-     <div id='dtable-container'></div>
+  <script>
+      var Stuff = [];
+      myFunction("tr");
+      // document.getElementById("demo").innerHTML = Stuff;
 
-       <b>Docking Info v2</b>
-       <div id='dtable-container0'></div>
-       <b>Docking Request Status v2</b>
-       <div id='dtable-container1'></div>
-     </div>
+     for (var data_id = 0; data_id < Stuff.length; data_id++) {
 
-     <script>
-       var tCount ="d" ,ddata_id, datDocking = [
-         "data/dockinfo.csv",
-         "data/dockingreq.csv",
-       ];
+       CsvToHtmlTable.init(
+         {
+           csv_path: Stuff[data_id],
+           element: '5table-container'+data_id,
+           csv_options: {separator: ',', delimiter: '""'}
 
-       for (var ddata_id = 0; ddata_id < datDocking.length; ddata_id++) {
-         CsvToHtmlTable.init(
-           {
-               csv_path: datDocking[ddata_id],
-               element: tCount+'table-container'+ddata_id,
-               csv_options: {separator: ',', delimiter: '""'}
-           }
-         );
-       };
+         }
+       );
+     };
+  </script>
 
-     </script>
-   </div id>
+</div id>
 
-  <div id="missions-html">
-    <h3>Mission Information</h3>
+
+<div id="systems-html">
+    <h3>Systems Information</h3>
     <div class="container-fluid">
-    <div id='mtable-container'></div>
-
-      <b>Mission Accepted v2</b>
-      <div id='mtable-container0'></div>
-      <b>Missions Completed v2</b>
-      <div id='mtable-container1'></div>
-      <b>Mission Aborted</b>
-      <div id='mtable-container2'></div>
+    <div id='6table-container'></div>
+      <b>Bodyscan v2</b>
+        <div id='6table-container0'></div>
     </div>
 
     <script>
-      var tCount ="m", mdata_id, datMission = [
-        "data/msnaccept.csv",
-        "data/msncomplete.csv",
-        "data/msnabort.csv"
-      ];
+        var Stuff = [];
+        myFunction("sy");
+        // document.getElementById("demo").innerHTML = Stuff;
 
-      for (var mdata_id = 0; mdata_id < datMission.length; mdata_id++) {
-        CsvToHtmlTable.init(
-          {
-              csv_path: datMission[mdata_id],
-              element: tCount+'table-container'+mdata_id,
-              csv_options: {separator: ',', delimiter: '""'}
-          }
-        );
-      };
+       for (var data_id = 0; data_id < Stuff.length; data_id++) {
 
+         CsvToHtmlTable.init(
+           {
+             csv_path: Stuff[data_id],
+             element: '6table-container'+data_id,
+             csv_options: {separator: ',', delimiter: '""'}
+
+           }
+         );
+       };
     </script>
-  </div id>
-
-    <div id="travel-html">
-      <h3>Travel Information</h3>
-      <div class="container-fluid">
-      <div id='table-container'></div>
-        <b>Jump History v2</b>
-        <div id='trtable-container0'></div>
-        <b>Current Jump v2</b>
-        <div id='trtable-container1'></div>
-        <b>SuperCruise v2</b>
-        <div id='trtable-container2'></div>
-      </div>
-
-      <script>
-        var tCount = "tr", trdata_id, datTravel = [
-          "data/jumpinfo.csv",
-          "data/currentjump.csv",
-          "data/supercruise.csv",
-        ];
-
-        for (var trdata_id = 0; trdata_id < datTravel.length; trdata_id++) {
-          CsvToHtmlTable.init(
-            {
-                csv_path: datTravel[trdata_id],
-                element: tCount+'table-container'+trdata_id,
-                csv_options: {separator: ',', delimiter: '""'}
-            }
-          );
-        };
-
-      </script>
-    </div id>
-
-  <div id="systems-html">
-      <h3>Systems Information</h3>
-      <div class="container-fluid">
-      <div id='table-container'></div>
-        <b>Bodyscan v2</b>
-        <div id='bdtable-container0'></div>
-      </div>
-
-      <script>
-        var tCount="bd", bddata_id, datBody = [
-          "data/bodyscan.csv"
-        ];
-
-        for (var bddata_id = 0; bddata_id < datBody.length; bddata_id++) {
-          CsvToHtmlTable.init(
-            {
-                csv_path: datBody[bddata_id],
-                element: tCount+'table-container'+bddata_id,
-                csv_options: {separator: ',', delimiter: '""'}
-            }
-          );
-        };
-
-      </script>
-    </div id>
-
-    <div id="commodities-html">
-        <h3>Commodities</h3>
-        <div class="container-fluid">
-        <div id='table-container'></div>
-          <b>Buy</b>
-          <div id='cotable-container0'></div>
-          <b>Sell</b>
-          <div id='cotable-container1'></div>
-          <b>Ejected</b>
-          <div id='cotable-container2'></div>
-        </div>
-
-        <script>
-          var tCount="co", cddata_id, datStuff = [
-            "data/BuyCommodity.csv",
-            "data/SellCommodity.csv",
-            "data/CargoEjected.csv"
-          ];
-
-          for (var cddata_id = 0; cddata_id < datStuff.length; cddata_id++) {
-            CsvToHtmlTable.init(
-              {
-                  csv_path: datStuff[cddata_id],
-                  element: tCount+'table-container'+cddata_id,
-                  csv_options: {separator: ',', delimiter: '""'}
-              }
-            );
-          };
-
-        </script>
-      </div id>
 
 </div id>
+  <div id="commodities-html">
+    <h3>Commodities</h3>
+    <div class="container-fluid">
+    <div id='7table-container'></div>
+      <b>Buy</b>
+        <div id='7table-container0'></div>
+      <b>Sell</b>
+        <div id='7table-container1'></div>
+      <b>Ejected</b>
+        <div id='7table-container2'></div>
+    </div>
+
+<script>
+    var Stuff = [];
+    myFunction("co");
+    // document.getElementById("demo").innerHTML = Stuff;
+
+   for (var data_id = 0; data_id < Stuff.length; data_id++) {
+
+     CsvToHtmlTable.init(
+       {
+         csv_path: Stuff[data_id],
+         element: '7table-container'+data_id,
+         csv_options: {separator: ',', delimiter: '""'}
+
+       }
+     );
+   };
+   </script>
+</div id>
+
+</div>
 
 </html>

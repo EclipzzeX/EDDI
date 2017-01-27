@@ -54,6 +54,7 @@
    <li class='tab'><a href="#travel-html">Travel</a></li>
    <li class='tab'><a href="#systems-html">Systems</a></li>
    <li class='tab'><a href="#commodities-html">Commodities</a></li>
+   <li class='tab'><a href="#ship-html">ShipInfo</a></li>
  </ul>
 
  <script>
@@ -77,7 +78,8 @@
        {"flag": "sy","file": "data/bodyscan.csv"},
        {"flag": "co","file": "data/BuyCommodity.csv"},
        {"flag": "co","file": "data/SellCommodity.csv"},
-       {"flag": "co","file": "data/CargoEjected.csv"}
+       {"flag": "co","file": "data/CargoEjected.csv"},
+       {"flag": "sh","file": "data/ShipHealth.csv"}
      ];
 </script>
 
@@ -288,5 +290,28 @@
       </script>
      </div id>
 
+     <div id="ship-html">
+       <h3>Ship Information</h3>
+       <div class="container-fluid">
+       <div id='8table-container'></div>
+         <b>Damage Report</b>
+       <div id='8table-container0'></div>
+       </div>
+
+      <script>
+        var Stuff = [];
+        myFunction("sh");
+        // document.getElementById("demo").innerHTML = Stuff;
+        for (var data_id = 0; data_id < Stuff.length; data_id++) {
+          CsvToHtmlTable.init(
+            {
+              csv_path: Stuff[data_id],
+              element: '8table-container'+data_id,
+              csv_options: {separator: ',', delimiter: '""'}
+            }
+          );
+        };
+      </script>
+     </div id>
 </div>
 </html>

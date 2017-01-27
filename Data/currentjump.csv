@@ -1,18 +1,29 @@
-System,Coordinates,Security,Economy,Government,Allegiance,Controlling Faction,Faction state,Fuel Used,Fuel Remaining
-Lyncis Sector MH-V b2-0,-23.25 55.781 -160.563,Low,None,None,None,Not set,None,1.59 tons,80.08% Your fuel level is adequate
-HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.59 tons,75.20% Your fuel level is adequate
-Lyncis Sector LH-V b2-2,-35.594 66.25 -161.938,Low,None,None,None,Not set,None,0.76 tons,90.54% Your fuel level is adequate
-HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,0.76 tons,90.54% Your fuel level is adequate
-Lyncis Sector CQ-Y c5,-36.75 66.25 -168.938,Low,None,None,None,Not set,None,1.56 tons,80.47% Your fuel level is adequate
-HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.56 tons,78.63% Your fuel level is adequate
-HIP 32135,-34.969 58.969 -168.625,Low,Terraforming,Confederacy,Independent,Privateer's Alliance,Boom,1.22 tons,84.69% Your fuel level is adequate
-HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.22 tons,84.70% Your fuel level is adequate
-Kuan Yin,-20.531x 61.25y -140.969z,Medium,Industrial,Democracy,Independent,Kuan Yin Labour,Retreat,2.22 tons,93.06% Your fuel level is adequate
-HIP 37162,-8.938x 59.5y -116.375z,Medium,High Tech,Corporate,Federation,HIP 37162 Interstellar,Boom,3.00 tons,90.62% Your fuel level is adequate
-Ngandii,-7.063x 66.281y -99.688z,Medium,Industrial,Democracy,Independent,Ngandii Progressive Party,Boom,1.10 tons,95.17% Your fuel level is adequate
-HIP 44324,-19.688x 95.438y -105.406z,Low,None,None,None,Not set,None,4.55 tons,85.78% Your fuel level is adequate
-HIP 43630,-38.656x 108.688y -124.813z,Low,None,None,None,Not set,None,3.86 tons,87.93% Your fuel level is adequate
-HR 3506,-58.563x 124.438y -141.844z,Low,None,None,None,Not set,None,3.98 tons,87.56% Your fuel level is adequate
-Lyncis Sector IM-V b2-2,-52.719x 94.063y -145.531z,Low,None,None,None,Not set,None,4.15 tons,85.06% Your fuel level is adequate
-Agarahma,-40.125x 73.469y -154.156z,Medium,Refinery,Democracy,Independent,People's Agarahma Progressive Party,None,2.56 tons,87.28% Your fuel level is adequate
-HIP 33368,-29.25x 63.188y -163.344z,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.02 tons,96.80% Your fuel level is adequate
+Date,Time,System,Coordinates,Security,Economy,Government,Allegiance,Controlling Faction,Faction state,Fuel Used,Fuel Remaining
+,,Lyncis Sector MH-V b2-0,-23.25 55.781 -160.563,Low,None,None,None,Not set,None,1.59 tons,80.08% Your fuel level is adequate
+,,HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.59 tons,75.20% Your fuel level is adequate
+,,Lyncis Sector LH-V b2-2,-35.594 66.25 -161.938,Low,None,None,None,Not set,None,0.76 tons,90.54% Your fuel level is adequate
+,,HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,0.76 tons,90.54% Your fuel level is adequate
+,,Lyncis Sector CQ-Y c5,-36.75 66.25 -168.938,Low,None,None,None,Not set,None,1.56 tons,80.47% Your fuel level is adequate
+,,HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.56 tons,78.63% Your fuel level is adequate
+,,HIP 32135,-34.969 58.969 -168.625,Low,Terraforming,Confederacy,Independent,Privateer's Alliance,Boom,1.22 tons,84.69% Your fuel level is adequate
+,,HIP 33368,-29.25 63.188 -163.344,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.22 tons,84.70% Your fuel level is adequate
+,,Kuan Yin,-20.531x 61.25y -140.969z,Medium,Industrial,Democracy,Independent,Kuan Yin Labour,Retreat,2.22 tons,93.06% Your fuel level is adequate
+,,HIP 37162,-8.938x 59.5y -116.375z,Medium,High Tech,Corporate,Federation,HIP 37162 Interstellar,Boom,3.00 tons,90.62% Your fuel level is adequate
+,,Ngandii,-7.063x 66.281y -99.688z,Medium,Industrial,Democracy,Independent,Ngandii Progressive Party,Boom,1.10 tons,95.17% Your fuel level is adequate
+,,HIP 44324,-19.688x 95.438y -105.406z,Low,None,None,None,Not set,None,4.55 tons,85.78% Your fuel level is adequate
+,,HIP 43630,-38.656x 108.688y -124.813z,Low,None,None,None,Not set,None,3.86 tons,87.93% Your fuel level is adequate
+,,HR 3506,-58.563x 124.438y -141.844z,Low,None,None,None,Not set,None,3.98 tons,87.56% Your fuel level is adequate
+,,Lyncis Sector IM-V b2-2,-52.719x 94.063y -145.531z,Low,None,None,None,Not set,None,4.15 tons,85.06% Your fuel level is adequate
+,,Agarahma,-40.125x 73.469y -154.156z,Medium,Refinery,Democracy,Independent,People's Agarahma Progressive Party,None,2.56 tons,87.28% Your fuel level is adequate
+,,HIP 33368,-29.25x 63.188y -163.344z,Medium,Industrial,Confederacy,Independent,Privateer's Alliance,Boom,1.02 tons,96.80% Your fuel level is adequate
+,,Col 285 Sector ZW-G b12-0,-123.844x 116.563y -100.375z,Low,None,None,None,Not set,None,4.93 tons,83.05% Your fuel level is adequate
+,,Col 285 Sector AI-F b13-0,-142.844x 135.875y -81.063z,Low,None,None,None,Not set,None,4.73 tons,68.27% Your fuel level is adequate
+,,HIP 72358,-153.656x 152.344y -58.031z,Low,None,None,None,Not set,None,3.90 tons,87.82% Your fuel level is adequate
+,,Col 285 Sector DE-C b15-0,-160.125x 179.781y -41.031z,Low,None,None,None,Not set,None,4.77 tons,85.09% Your fuel level is adequate
+,,Col 285 Sector EP-A b16-0,-180.563x 196.531y -22.219z,Low,None,None,None,Not set,None,4.56 tons,81.18% Your fuel level is adequate
+,,Col 285 Sector QK-M c8-4,-198.344x 203.406y 2.313z,Low,None,None,None,Not set,None,4.09 tons,80.93% Your fuel level is adequate
+,,Col 285 Sector IG-X b17-1,-218.656x 220.719y 19.656z,Low,None,None,None,Not set,None,4.23 tons,67.72% Your fuel level is adequate
+,,Col 285 Sector JR-V b18-0,-240.969x 236.906y 36.281z,Low,None,None,None,Not set,None,4.23 tons,54.51% Your fuel level is adequate
+,,Col 285 Sector GW-V b18-2,-259.594x 264.25y 40.875z,Low,None,None,None,Not set,None,4.95 tons,84.54% Your fuel level is adequate
+,,Col 285 Sector EW-V b18-2,-292.281x 259.719y 41.344z,Low,None,None,None,Not set,None,4.80 tons,84.99% Your fuel level is adequate
+,,17 Draconis,-305.75x 272.219y 49.5z,Medium,Military,Corporate,Federation,Jet Bridge Inc,Investment,1.43 tons,95.54% Your fuel level is adequate

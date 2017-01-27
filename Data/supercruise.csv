@@ -1,6 +1,10 @@
-﻿Status,System,System Info
-Supercruise,HIP 33368 system, none
-Normal,HIP 33368 system,PlanetaryRing HIP 33368 6 B Ring
-Supercruise,HIP 33368 system, none
-Normal,HIP 33368 system,Station Barjavel Station
-Normal,HIP 33368 system,Station Barjavel Station
+﻿Date,Time,Status,System,System Info
+,,Supercruise,HIP 33368 system, none
+,,Normal,HIP 33368 system,PlanetaryRing HIP 33368 6 B Ring
+,,Supercruise,HIP 33368 system, none
+,,Normal,HIP 33368 system,Station Barjavel Station
+,,Normal,HIP 33368 system,Station Barjavel Station
+,,Normal,Col 285 Sector EP-A b16-0 system,Star Col 285 Sector EP-A b16-0 A
+,,Supercruise,Col 285 Sector EP-A b16-0 system, none
+,,Normal,Col 285 Sector IG-X b17-1 system,Star Col 285 Sector IG-X b17-1 A
+,,Normal,17 Draconis system,Station Paradiso Outpost

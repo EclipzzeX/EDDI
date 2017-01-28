@@ -72,9 +72,9 @@
        {"flag": "mi","file": "data/msnaccept.csv"},
        {"flag": "mi","file": "data/msncomplete.csv"},
        {"flag": "mi","file": "data/msnabort.csv"},
-       {"flag": "tr","file": "data/jumpinfo.csv"},
-       {"flag": "tr","file": "data/currentjump.csv"},
-       {"flag": "tr","file": "data/supercruise.csv"},
+       {"flag": "tr1","file": "data/jumpinfo.csv"},
+       {"flag": "tr2","file": "data/currentjump.csv"},
+       {"flag": "tr3","file": "data/supercruise.csv"},
        {"flag": "sy","file": "data/bodyscan.csv"},
        {"flag": "co","file": "data/BuyCommodity.csv"},
        {"flag": "co","file": "data/SellCommodity.csv"},
@@ -215,15 +215,37 @@
        <div id='5table-container'></div>
          <b>Jump History v2</b>
        <div id='5table-container0'></div>
-         <b>Current Jump v2</b>
-       <div id='5table-container1'></div>
-         <b>SuperCruise v2</b>
-       <div id='5table-container2'></div>
+
       </div>
+
+      <div id="travel-container" class='tab-container'>
+       <ul class='etabs'>
+         <li class='tab'><a href="#travel2-html">Current Jump</a></li>
+         <li class='tab'><a href="#travel3-html">Cruising</a></li>
+       </ul>
+     </div id>
+
+     <div id="travel2-html">
+       <h3> Current Jump Information</h3>
+       <div class="container-fluid2">
+       <div id='5atable-container'></div>
+       <b>Current Jump v2</b>
+       <div id='5atable-container0'></div>
+
+
+    <div id="travel3-html">
+      <h3> Cruising Information</h3>
+      <div class="container-fluid3">
+      <div id='5btable-container'></div>
+      <b>Cruise Status</b>
+      <div id='5btable-container0'></div>
+    </div>
+  </div id>
+
 
       <script>
         var Stuff = [];
-        myFunction("tr");
+        myFunction("tr1");
         // document.getElementById("demo").innerHTML = Stuff;
         for (var data_id = 0; data_id < Stuff.length; data_id++) {
           CsvToHtmlTable.init(

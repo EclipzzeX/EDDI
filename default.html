@@ -72,9 +72,9 @@
        {"flag": "mi","file": "data/msnaccept.csv"},
        {"flag": "mi","file": "data/msncomplete.csv"},
        {"flag": "mi","file": "data/msnabort.csv"},
-       {"flag": "tr1","file": "data/jumpinfo.csv"},
-       {"flag": "tr2","file": "data/currentjump.csv"},
-       {"flag": "tr3","file": "data/supercruise.csv"},
+       {"flag": "tr","file": "data/jumpinfo.csv"},
+       {"flag": "tr","file": "data/currentjump.csv"},
+       {"flag": "tr","file": "data/supercruise.csv"},
        {"flag": "sy","file": "data/bodyscan.csv"},
        {"flag": "co","file": "data/BuyCommodity.csv"},
        {"flag": "co","file": "data/SellCommodity.csv"},
@@ -215,9 +215,14 @@
        <div id='5table-container'></div>
          <b>Jump History v2</b>
        <div id='5table-container0'></div>
+          <b>Current Jump/b>
+       <div id='5table-container1'></div>
+         <b>Crusing</b>
+       <div id='5table-container2'></div>
+
 
       </div>
-
+<!--
       <div id="travel-container" class='tab-container'>
        <ul class='etabs'>
          <li class='tab'><a href="#travel2-html">Current Jump</a></li>
@@ -241,11 +246,11 @@
       <div id='5btable-container0'></div>
     </div>
   </div id>
-
+-->
 
       <script>
         var Stuff = [];
-        myFunction("tr1");
+        myFunction("tr");
         // document.getElementById("demo").innerHTML = Stuff;
         for (var data_id = 0; data_id < Stuff.length; data_id++) {
           CsvToHtmlTable.init(

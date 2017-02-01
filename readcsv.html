@@ -12,7 +12,7 @@
 
 <script>
   $(function() {
-    $('#products').csvCalc('products.csv');
+    $('#bounties').csvCalc('data/bounty.csv');
   });
 </script>
 
@@ -21,18 +21,22 @@
 <body>
 
 <h1>Demo 1</h1>
-<table id="products">
+<table id="Bounties">
   <tr class="th">
-    <th>id</th>
-    <th>name</th>
-    <th>price</th>
-    <th>amount</th>
-    <th>sum</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Bounty</th>
+    <th>Total</th>
+    <th>Faction</th>
+    <th>Wing</th>
   </tr>
-  <tr class="product-info" data-csvcalc-repeat>
+  <tr class="bounties" data-csvcalc-repeat>
     <td data-csvcalc-cell="0" data-csvcalc-id></td>
     <td data-csvcalc-cell="1"></td>
     <td data-csvcalc-cell="2" data-csvcalc-price class="price"></td>
+    <td data-csvcalc-cell="3"</td>
+    <td data-csvcalc-cell="4"</td>
+    <td data-csvcalc-cell="5"</td>
     <td><input data-csvcalc-input class="amount" type="number" min="0" value="0"></td>
     <td data-csvcalc-sum class="sum">0</td>
   </tr>

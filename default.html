@@ -104,6 +104,8 @@
       <div id='1table-container'></div>
         <b>Current Login Information</b>
       <div id='1table-container0'></div>
+       <b> Login Summary </b>
+       <div id='d3container1'></div>
         <b>Progress</b>
       <div id='1table-container1'></div>
         <b>Login History</b>
@@ -124,6 +126,65 @@
             }
           );
         };
+
+
+                d3.csv('Data/LoginHistory.csv', function(error, csv_data) {
+                 var data = d3.nest()
+                    .key(function(d) { return d.Date;})
+                    .rollup(function(d) {
+                        // d3.format wraps g.Reward to give integer value ","
+                        return d.length;
+                        console.log(d.length);
+                        //return d3.format(",")(d3.count(d, function(g) {return g.Time; }));
+                      }
+                    )
+                    .entries(csv_data);
+
+                    var headers = ["Date","Total"];
+
+                    var table = d3.select("#d3container").append("table"),  //#d3container is the <div id="d3container"> above
+                        thead = table.append('thead')
+                        tbody = table.append('tbody');
+
+                    //append the Header row
+                    thead.append('tr')
+                         .selectAll('th')
+                         .data(headers)
+                         .enter()
+                         .append('th')
+                         .text(function(column) {return column; });
+
+                    data.forEach(function(d) {
+                        var rows = tbody.selectAll('tr')
+                          .data(data)
+                          .enter()
+                          .append('tr');
+
+                          var cells = rows.selectAll('td')
+                            .data(function (d) {
+                              return Object.values(d);
+                            })
+                            .enter()
+                            .append('td')
+                            .text(function (d) { return d; });
+
+                            var cells = rows.selectAll('td')
+                            .data(function(d) {
+                                var arr = [];
+                                for (var i in d) {
+                                    arr.push(d[i])
+                                }
+                                return arr;
+                            })
+                            .enter()
+                            .append('td')
+                            .text(function(d) { return d;});
+
+                            d.Date = d.key;
+                            d.Reward = d3.format(",")(d.values);
+                            console.log("Date: " + d.Date + " Reward : " + d.Reward);
+                        })
+                    })
       </script>
     </div id>
 

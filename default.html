@@ -1,6 +1,13 @@
 <html>
 <head>
-  <title>E:D Production</title>
+  <title>E:D WIP</title>
+<!--
+  // **************************************************************************
+  //
+  // 2017-02-11 - Bring d3Summary.js Function to life
+  //
+  // **************************************************************************
+-->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +31,7 @@
   <script src="js/dataTables.bootstrap.js"></script>
   <script src='js/csv_to_html_table.js'></script>
   <script src="js/d3.min.js"></script>
+  <script src="js/d3Summary.js"></script>
 
   <script type="text/javascript">
     $(document).ready( function() {
@@ -60,27 +68,27 @@
 
  <script>
  var datTables=[
-       {"flag": "gi","file": "data/GameInfo.csv"},
-       {"flag": "gi","file": "data/progress.csv"},
-       {"flag": "gi","file": "data/LoginHistory.csv"},
-       {"flag": "bo","file": "data/bountyhistory.csv"},
-       {"flag": "bo","file": "data/bounty.csv"},
-       {"flag": "bo","file": "data/ibounty.csv"},
-       {"flag": "bo","file": "data/conflictzone.csv"},
-       {"flag": "do","file": "data/dockinfo.csv"},
-       {"flag": "do","file": "data/dockingreq.csv"},
-       {"flag": "do","file": "data/dockinghistory.csv"},
-       {"flag": "mi","file": "data/msnaccept.csv"},
-       {"flag": "mi","file": "data/msncomplete.csv"},
-       {"flag": "mi","file": "data/msnabort.csv"},
-       {"flag": "tr","file": "data/jumpinfo.csv"},
-       {"flag": "tr","file": "data/currentjump.csv"},
-       {"flag": "tr","file": "data/supercruise.csv"},
-       {"flag": "sy","file": "data/bodyscan.csv"},
-       {"flag": "co","file": "data/BuyCommodity.csv"},
-       {"flag": "co","file": "data/SellCommodity.csv"},
-       {"flag": "co","file": "data/CargoEjected.csv"},
-       {"flag": "sh","file": "data/ShipHealth.csv"}
+       {"flag": "gi","file": "data/GameInfo.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "gi","file": "data/progress.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "gi","file": "data/LoginHistory.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "bo","file": "data/bountyhistory.csv","c1":"","c2": "","sums": "n"},
+       {"flag": "bo","file": "Data/bounty.csv","c1": "Date","c2": "Reward","sums": "y"},
+       {"flag": "bo","file": "Data/ibounty.csv","c1": "Date","c2": "Credits","sums": "y"},
+       {"flag": "bo","file": "data/conflictzone.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "do","file": "data/dockinfo.csv","c1": "Station","c2": "","sums": "y"},
+       {"flag": "do","file": "data/dockingreq.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "do","file": "data/dockinghistory.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "mi","file": "data/msnaccept.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "mi","file": "data/msncomplete.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "mi","file": "data/msnabort.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "tr","file": "data/jumpinfo.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "tr","file": "data/currentjump.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "tr","file": "data/supercruise.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "sy","file": "data/bodyscan.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "co","file": "data/BuyCommodity.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "co","file": "data/SellCommodity.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "co","file": "data/CargoEjected.csv","c1": "","c2": "","sums": "n"},
+       {"flag": "sh","file": "data/ShipHealth.csv","c1": "","c2": "","sums": "n"}
      ];
 </script>
 
@@ -91,9 +99,14 @@
             {
               Stuff.push ([datTables[data_id].file]);
             }
+          if (datTables[data_id].flag == iFlag && datTables[data_id].sums == "y")
+            {
+              Front.push ([datTables[data_id].file]);
+              col1.push ([datTables[data_id].c1]);
+              col2.push ([datTables[data_id].c2]);
+            }
         }
     }
-
  </script>
 
  <div class='panel-container'>
@@ -104,19 +117,20 @@
       <div id='1table-container'></div>
         <b>Current Login Information</b>
       <div id='1table-container0'></div>
-       <b> Login Summary </b>
-       <div id='d3container1'></div>
         <b>Progress</b>
       <div id='1table-container1'></div>
         <b>Login History</b>
       <div id='1table-container2'></div>
-        <b>Bounty Summary</b>
+        
       </div>
 
       <script>
         var Stuff = [];
+        var Front = [];
+        var col1 = [];
+        var col2 = [];
+
         myFunction("gi");
-        // document.getElementById("demo").innerHTML = Stuff;
         for (var data_id = 0; data_id < Stuff.length; data_id++) {
           CsvToHtmlTable.init(
             {
@@ -127,65 +141,17 @@
           );
         };
 
-
-                d3.csv('Data/LoginHistory.csv', function(error, csv_data) {
-                 var data = d3.nest()
-                    .key(function(d) { return d.Date;})
-                    .rollup(function(d) {
-                        // d3.format wraps g.Reward to give integer value ","
-                        return d.length;
-                        console.log(d.length);
-                        //return d3.format(",")(d3.count(d, function(g) {return g.Time; }));
-                      }
-                    )
-                    .entries(csv_data);
-
-                    var headers = ["Date","Total"];
-
-                    var table = d3.select("#d3container").append("table"),  //#d3container is the <div id="d3container"> above
-                        thead = table.append('thead')
-                        tbody = table.append('tbody');
-
-                    //append the Header row
-                    thead.append('tr')
-                         .selectAll('th')
-                         .data(headers)
-                         .enter()
-                         .append('th')
-                         .text(function(column) {return column; });
-
-                    data.forEach(function(d) {
-                        var rows = tbody.selectAll('tr')
-                          .data(data)
-                          .enter()
-                          .append('tr');
-
-                          var cells = rows.selectAll('td')
-                            .data(function (d) {
-                              return Object.values(d);
-                            })
-                            .enter()
-                            .append('td')
-                            .text(function (d) { return d; });
-
-                            var cells = rows.selectAll('td')
-                            .data(function(d) {
-                                var arr = [];
-                                for (var i in d) {
-                                    arr.push(d[i])
-                                }
-                                return arr;
-                            })
-                            .enter()
-                            .append('td')
-                            .text(function(d) { return d;});
-
-                            d.Date = d.key;
-                            d.Reward = d3.format(",")(d.values);
-                            console.log("Date: " + d.Date + " Reward : " + d.Reward);
-                        })
-                    })
-      </script>
+      for (var data_id = 0; data_id < Front.length; data_id++) {
+          d3Summary.init(
+            {
+              csv_path: Front[data_id],
+              element:  'gfunction-container'+data_id,
+              columns:  [col1[data_id],col2[data_id]],
+              headers:  [col1[data_id],col2[data_id]]
+            }
+          );
+        };
+       </script>
     </div id>
 
      <div id="bounty-html">
@@ -194,10 +160,10 @@
        <div id='2table-container'></div>
          <b>Bounty History</b>
        <div id='2table-container0'></div>
-       <b> Bounty Reward Summary </b>
-       <div id='d3container'></div> <br>
-       <b> Bounty Incurred Summary </b>
-       <div id='d3container2'></div> <br>
+       <b> Bounty Reward Summary</b>
+       <div id='bfunction-container0'></div> <br>
+       <b> Incurred Bounty Reward Summary</b>
+       <div id='bfunction-container1'></div> <br>
          <b>Bounty Info</b>
        <div id='2table-container1'></div>
          <b>Bounty Incurred</b>
@@ -208,8 +174,11 @@
 
       <script>
         var Stuff = [];
+        var Front = [];
+        var col1 = [];
+        var col2 = [];
+
         myFunction("bo");
-        // document.getElementById("demo").innerHTML = Stuff;
         for (var data_id = 0; data_id < Stuff.length; data_id++) {
           CsvToHtmlTable.init(
             {
@@ -220,126 +189,24 @@
           );
         };
 
-//DA MONEY!!!!  Would like to Functionalize it.....
-//TODO: Make a Function?????
-
-        d3.csv('Data/bounty.csv', function(error, csv_data) {
-         var data = d3.nest()
-            .key(function(d) { return d.Date;})
-            .rollup(function(d) {
-                // d3.format wraps g.Reward to give integer value ","
-                return d3.format(",")(d3.sum(d, function(g) {return g.Reward; }));
-              }
-            )
-            .entries(csv_data);
-
-            var headers = ["Date","Total"];
-
-            var table = d3.select("#d3container").append("table"),  //#d3container is the <div id="d3container"> above
-                thead = table.append('thead')
-                tbody = table.append('tbody');
-
-            //append the Header row
-            thead.append('tr')
-                 .selectAll('th')
-                 .data(headers)
-                 .enter()
-                 .append('th')
-                 .text(function(column) {return column; });
-
-            data.forEach(function(d) {
-                var rows = tbody.selectAll('tr')
-                  .data(data)
-                  .enter()
-                  .append('tr');
-
-                  var cells = rows.selectAll('td')
-                    .data(function (d) {
-                      return Object.values(d);
-                    })
-                    .enter()
-                    .append('td')
-                    .text(function (d) { return d; });
-
-                    var cells = rows.selectAll('td')
-                    .data(function(d) {
-                        var arr = [];
-                        for (var i in d) {
-                            arr.push(d[i])
-                        }
-                        return arr;
-                    })
-                    .enter()
-                    .append('td')
-                    .text(function(d) { return d;});
-
-                    d.Date = d.key;
-                    d.Reward = d3.format(",")(d.values);
-                    console.log("Date: " + d.Date + " Reward : " + d.Reward);
-                })
-            })
-            d3.csv('Data/ibounty.csv', function(error, csv_data) {
-             var data = d3.nest()
-                .key(function(d) { return d.Date;})
-                .rollup(function(d) {
-                    // d3.format wraps g.Reward to give integer value ","
-                    return d3.format(",")(d3.sum(d, function(g) {return g.Credits; }));
-                  }
-                )
-                .entries(csv_data);
-
-                var headers = ["Date","Total"];
-
-                var table = d3.select("#d3container2").append("table"),  //#d3container is the <div id="d3container"> above
-                    thead = table.append('thead')
-                    tbody = table.append('tbody');
-
-                //append the Header row
-                thead.append('tr')
-                     .selectAll('th')
-                     .data(headers)
-                     .enter()
-                     .append('th')
-                     .text(function(column) {return column; });
-
-                data.forEach(function(d) {
-                    var rows = tbody.selectAll('tr')
-                      .data(data)
-                      .enter()
-                      .append('tr');
-
-                      var cells = rows.selectAll('td')
-                        .data(function (d) {
-                          return Object.values(d);
-                        })
-                        .enter()
-                        .append('td')
-                        .text(function (d) { return d; });
-
-                        var cells = rows.selectAll('td')
-                        .data(function(d) {
-                            var arr = [];
-                            for (var i in d) {
-                                arr.push(d[i])
-                            }
-                            return arr;
-                        })
-                        .enter()
-                        .append('td')
-                        .text(function(d) { return d;});
-
-                        d.Date = d.key;
-                        d.Reward = d3.format(",")(d.values);
-                        console.log("Date: " + d.Date + " Reward : " + d.Reward);
-                    })
-                })
-
-      </script>
+      for (var data_id = 0; data_id < Front.length; data_id++) {
+          d3Summary.init(
+            {
+              csv_path: Front[data_id],
+              element:  'bfunction-container'+data_id,
+              columns:  [col1[data_id],col2[data_id]],
+              headers:  [col1[data_id],col2[data_id]]
+            }
+          );
+        };
+       </script>
      </div id>
 
      <div id="docking-html">
        <h3>Docking Information</h3>
        <div class="container-fluid">
+         <b> Docking Summary</b>
+         <div id='dfunction-container0'></div> <br>
        <div id='3table-container'></div>
          <b>Docking Info v2</b>
        <div id='3table-container0'></div>
@@ -349,6 +216,9 @@
 
       <script>
         var Stuff = [];
+        var Front = [];
+        var col1 = [];
+        var col2 = [];
         myFunction("do");
         // document.getElementById("demo").innerHTML = Stuff;
         for (var data_id = 0; data_id < Stuff.length; data_id++) {
@@ -360,6 +230,18 @@
             }
           );
         };
+          //myFunction2("y");
+                //console.log(Front[0]);
+          for (var data_id = 0; data_id < Front.length; data_id++) {
+            d3Summary.init(
+              {
+                csv_path: Front[data_id],
+                element:  'dfunction-container'+data_id,
+                columns:  [col1[data_id],col2[data_id]],
+                headers:  [col1[data_id],col2[data_id]]
+              }
+            );
+          };
       </script>
      </div id>
 
